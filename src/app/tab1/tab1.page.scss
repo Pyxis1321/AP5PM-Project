@@ -1,0 +1,70 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+img {
+    border: 5px solid rgb(0, 0, 0);
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    box-shadow: 0px 0px 5px 5px rgb(116, 16, 129);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .7em;
+    margin-top: .7em;
+    width: 75%;
+}
+
+// .outside-container{
+//     background-color: blue;
+// }
+
+.container{
+    border: 5px solid rgb(0, 0, 0);
+    border-image-slice: 1;
+    border-radius: 5%;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    margin: auto;
+    width: 90%;
+}
+
+.search{
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.search input{
+    background-color: rgb(57, 59, 61);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    color: var(--grey-1);
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.fav-button{
+    background-color: transparent;
+    position: absolute;
+    right: 1.7em;
+    top: 1.2em;
+}
+
+ion-item {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+  }
+
+ion-content{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    --ion-background-color: #000000 !important;
+}
+ion-label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 16px !important;
+}
+
+

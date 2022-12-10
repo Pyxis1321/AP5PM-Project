@@ -7,14 +7,27 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { Component, OnInit } from '@angular/core';
+import { FilmData } from '../models/films.model';
+import { FilmService } from '../services/film.service';
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    HttpClientModule
+
   ],
   declarations: [Tab1Page]
 })
-export class Tab1PageModule {}
+
+
+
+export class Tab1PageModule {
+
+}
