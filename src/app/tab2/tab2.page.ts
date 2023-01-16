@@ -7,40 +7,38 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmData } from '../models/films.model';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+	selector: 'app-tab2',
+	templateUrl: 'tab2.page.html',
+	styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  films = [];
-  filmName: string = '';
-  constructor(
-    private storageService: StorageService
-  ) {
-    this.storageService.getData("films").then(films => {
-      this.films = films;
-      console.log(films);
-    });
-  }
+	films: string[] = [];
+	filmName: string = '';
 
-  onSubmit() {
-    this.storageService.getData("films").then(films => {
-      this.films = films;
-      
-      if(this.films.includes(this.filmName)){
-      const index = films.indexOf(this.filmName);
-      this.films.splice(index,1);
+	constructor(
+		private storageService: StorageService
+	) {
+		this.refresh();
+	}
 
-      this.storageService.saveData("films", this.films);
-      this.refresh()
-      }
-    });
-    }
+	onSubmit() {
+		this.storageService.getData("films").then(films => {
+			this.films = films;
 
-    refresh(){
-      this.storageService.getData("films").then(films => {
-        this.films = films;
-        console.log(films);
-      });
-    }
+			if (this.films.includes(this.filmName)) {
+				const index = films.indexOf(this.filmName);
+				this.films.splice(index, 1);
+
+				this.storageService.saveData("films", this.films).then(_ => {
+					this.refresh()
+				})
+			}
+		});
+	}
+
+	refresh() {
+		this.storageService.getData("films").then(films => {
+			this.films = films;
+		});
+	}
 }

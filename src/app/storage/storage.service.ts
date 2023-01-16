@@ -8,10 +8,7 @@ export class StorageService {
 
   constructor() { }
 
-  // films: string[] = [];
-
   async saveData(key: string, data: any) {
-    // this.films.push(data)
     await Preferences.set({
       key,
       value: JSON.stringify(data),
@@ -22,14 +19,4 @@ export class StorageService {
     const {value} = await Preferences.get({key});
     return JSON.parse(value);
   }
-
-  // async saveData(data: string){
-  //   this.films.push(data);
-  //   localStorage.setItem('films',JSON.stringify(this.films))
-  // }
-
-  // async getData(){
-  //   const values = JSON.parse(localStorage.getItem('films'));
-  //   return Promise.resolve(values);
-  // }
 }

@@ -1,8 +1,3 @@
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
-}
-
 img {
     border: 5px solid rgb(0, 0, 0);
     border-image-slice: 1;
@@ -20,18 +15,23 @@ img {
 //     background-color: blue;
 // }
 
-.container{
-    border: 5px solid rgb(0, 0, 0);
-    border-image-slice: 1;
-    border-radius: 5%;
-    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-    margin: auto;
-    width: 90%;
-}
+// ion-list.container{
+//     border: 5px solid rgb(0, 0, 0);
+//     border-image-slice: 1;
+//     border-radius: 5%;
+//     border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+//     margin: auto;
+//     width: 90%;
+// }
 
 .search{
+    margin: auto;
+    width: 60%;
+    color:#ffffff;
     margin-top: 0.5em;
     text-align: center;
+    --ion-text-color: #ffffff;
+    --input-text-color: #ffffff;
 }
 
 .search input{
@@ -48,23 +48,45 @@ img {
 .fav-button{
     background-color: transparent;
     position: absolute;
-    right: 1.7em;
-    top: 1.2em;
+    right: 2em;
+    top: 1.1em;
 }
 
-ion-item {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-  }
+// ion-item {
+//     --ion-background-color: #000000 !important;
+//     font-family: Verdana, Geneva, Tahoma, sans-serif;
+//     font-size: 20px;
+//   }
+
+// ion-content{
+//     font-family: Verdana, Geneva, Tahoma, sans-serif;
+//     font-size: 20px;
+//     --ion-background-color: #000000 !important;
+// }
+// ion-label{
+//     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+//     font-size: 16px !important;
+// }
+
+.container{
+    border: 5px solid rgb(0, 0, 0);
+    border-image-slice: 1;
+    border-radius: 5%;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    margin: auto;
+    width: 90%;
+}
 
 ion-content{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-    --ion-background-color: #000000 !important;
-}
-ion-label{
-    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-    font-size: 16px !important;
+    --ion-background-color:#161616;
+    --ion-text-color: #ffffff;
 }
 
+ion-icon {
+    color: white;
+  }
 
+  ion-searchbar{
+    --ion-text-color: #ffffff;
+    --input-text-color: #ffffff;
+  }

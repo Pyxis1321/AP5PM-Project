@@ -8,7 +8,7 @@ export const environment = {
   api:{
     // TODO: set your api key
     key: '543c5908',
-    baseUrl: 'http://www.omdbapi.com/?i=tt3896198&apikey=543c5908&',
+    baseUrl: 'https://www.omdbapi.com/?i=tt3896198&apikey=543c5908&',
   }
 };
 

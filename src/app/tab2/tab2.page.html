@@ -1,16 +1,15 @@
-<ion-content>
-<ion-infinite-scroll>
-  <div class="search">
-    <form #form="ngForm" (submit)="onSubmit()">
-      <input type="text" placeholder="Delete film" name="film" [(ngModel)]="filmName">
-    </form>
-    <button (click)="refresh()" class="fav-button"><ion-icon ion-icon size="large" name="refresh-outline"></ion-icon></button>
-  </div>
+<ion-content [fullscreen]="true">
+	<form #form="ngForm" (submit)="onSubmit()">
+		<ion-searchbar placeholder="Delete" name="film" [(ngModel)]="filmName" class="search"></ion-searchbar>
+	</form>
+	<ion-button fill="clear" color="primary" (click)="refresh()" class="refresh-button"><ion-icon ion-icon size="large"
+			name="refresh-outline"></ion-icon></ion-button>
 
-<ion-card>
-  <ion-card-content *ngFor="let film of films">
-    {{film}}
-  </ion-card-content>
-</ion-card>
-</ion-infinite-scroll>
+	<ion-list lines="none" *ngFor="let film of films">
+		<ion-item>
+			<ion-label>{{film}}</ion-label>
+		</ion-item>
+	</ion-list>
+
+<ion-infinite-scroll></ion-infinite-scroll>
 </ion-content>

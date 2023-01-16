@@ -7,65 +7,59 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmData } from '../models/films.model';
 import { FilmService } from '../services/film.service';
 import { StorageService } from '../storage/storage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+	selector: 'app-tab1',
+	templateUrl: 'tab1.page.html',
+	styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
 
-  constructor(
-    private filmService: FilmService,
-    private storageService: StorageService
-    ) {}
-  
-  
+	constructor(
+		private filmService: FilmService,
+		private storageService: StorageService,
+		private router: Router
+	) { }
 
-  filmData?: FilmData;
-  filmName: string = 'Avatar';
+	filmData: FilmData;
+	filmName: string = 'Avatar';
 
-  films: string[] = [];
+	films: string[] = [];
 
-  ngOnInit(): void {
-    this.getFilmDataData(this.filmName);
-    this.filmName = '';
-  }
- 
-  onSubmit(){
-    this.getFilmDataData(this.filmName);
-    this.filmName = '';
-  }
+	ngOnInit(): void {
+		this.router.events.subscribe(() => {
+			this.getFilmDataData();
+		})
+	}
 
-  private getFilmDataData(filmName: string){
-    this.filmService.getFilmData(this.filmName).subscribe({
-      next: (response: any) => {
-        this.filmData = response;
-      }
-    });
-  }
+	onSubmit() {
+		this.getFilmDataData();
+	}
 
-  saveData(){
-    // this.films.push(this.filmData.Title);
-    // localStorage.setItem('films',JSON.stringify(this.films))
-    this.storageService.getData("films").then(films => {
-      this.films = films;
-      // console.log(films);
-      if(!this.films.includes(this.filmData.Title)){
-        this.films.push(this.filmData.Title);
-        this.storageService.saveData("films", this.films);
-      }
-    });
-  }
+	private getFilmDataData() {
+		this.filmService.getFilmData(this.filmName).subscribe({
+			next: (response: any) => {
+				this.filmData = response;
+			}
+		});
+	}
 
-  // getData(){
-	// // const values = JSON.parse(localStorage.getItem('films'))
-  // const values = this.storageService.getData("films")
-	// console.log(values)
-  // }
-
-
-  title = 'Weather-App';
+	saveData() {
+		this.storageService.getData("films").then(films => {
+			if (!films) {
+				this.films = [];
+			}
+			else {
+				this.films = films;
+			}
+			if (!this.films.includes(this.filmData.Title)) {
+				this.films.push(this.filmData.Title);
+				this.storageService.saveData("films", this.films);
+			}
+		});
+	}
+	title = 'Weather-App';
 
 }

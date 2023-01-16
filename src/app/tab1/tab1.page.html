@@ -1,41 +1,40 @@
-<body>
-<ion-content>
-<ion-infinite-scroll>
-  
-<div class="search">
-  <form #form="ngForm" (submit)="onSubmit()">
-    <input type="text" placeholder="Search film" name="film" [(ngModel)]="filmName">
-  </form>
-  <button (click)="saveData()" class="fav-button"><ion-icon size="large" name="star-outline"></ion-icon></button>
-</div>
+<ion-content [fullscreen]="true">
+	<form #form="ngForm" (submit)="onSubmit()">
+		<ion-searchbar placeholder="Search" name="film" [(ngModel)]="filmName" class="search"></ion-searchbar>
+	</form>
+	<ion-button fill="clear" color="primary" (click)="saveData()" class="fav-button"><ion-icon slot="icon-only"
+			size="large" name="star-outline" ion-text color="white"></ion-icon></ion-button>
 
-<div *ngIf="filmData">
-  <img src={{filmData.Poster}}>
-  <ion-list class = "container">
-    <ion-item>
-      <ion-icon name="pricetag-outline"></ion-icon>
-      <p>&nbsp;&nbsp;</p>
-      <ion-label class="ion-text-wrap">Tittle: {{filmData.Title}}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="person-outline"></ion-icon>
-      <p>&nbsp;&nbsp;</p>
-      <ion-label class="ion-text-wrap">Directed by: {{filmData.Director}}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="book-outline"></ion-icon>
-      <p>&nbsp;&nbsp;</p>
-      <ion-label class="ion-text-wrap">Genre: {{filmData.Genre}}</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="film-outline"></ion-icon>
-      <p>&nbsp;&nbsp;</p>
-      <ion-label class="ion-text-wrap">Rating: {{filmData.Rated}}</ion-label>
-    </ion-item>
-  </ion-list>
-</div>
+	<div class="img" *ngIf="filmData">
+		<img src={{filmData.Poster}}>
+	</div>
 
-</ion-infinite-scroll>
+	<div class="container">
+		<ion-card>
+			<ion-list *ngIf="filmData">
+				<ion-item>
+					<ion-icon name="pricetag-outline"></ion-icon>
+					<p>&nbsp;&nbsp;</p>
+					<ion-label class="ion-text-wrap">Tittle: {{filmData.Title}}</ion-label>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="person-outline"></ion-icon>
+					<p>&nbsp;&nbsp;</p>
+					<ion-label class="ion-text-wrap">Directed by: {{filmData.Director}}</ion-label>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="book-outline"></ion-icon>
+					<p>&nbsp;&nbsp;</p>
+					<ion-label class="ion-text-wrap">Genre: {{filmData.Genre}}</ion-label>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="film-outline"></ion-icon>
+					<p>&nbsp;&nbsp;</p>
+					<ion-label class="ion-text-wrap">Rating: {{filmData.Rated}}</ion-label>
+				</ion-item>
+			</ion-list>
+		</ion-card>
+	</div>
+
+<ion-infinite-scroll></ion-infinite-scroll>
 </ion-content>
-</body>
-
